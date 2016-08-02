@@ -1,0 +1,24 @@
+{
+  "name": "frontend-testing-comparative",
+  "description": "",
+  "main": "",
+  "authors": [
+    "scosmaa <scosmaa@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/scosmaa/frontend-testing-comparative",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "dijit": "dojo/dijit#1.8.3",
+    "util": "dojo/util#1.8.3",
+    "dojox": "dojo/dojox#1.8.3",
+    "dojo": "dojo/dojo#1.8.3",
+    "gridx": "1.2"
+  }
+}
