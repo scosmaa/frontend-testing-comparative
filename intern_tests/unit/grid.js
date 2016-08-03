@@ -18,16 +18,17 @@ define([
 
     var grid;
 
+    var beatles = [
+        {id: 1, name: 'John', surname: 'Lennon', instrument: 'Guitar'},
+        {id: 2, name: 'Paul', surname: 'McCartney', instrument: 'Bass'},
+        {id: 3, name: 'George', surname: 'Harrison', instrument: 'Guitar'},
+        {id: 4, name: 'Ringo', surname: 'Starr', instrument: 'Drums'}
+    ];
     registerSuite({
         name: 'Grid Test Suite',
 
         setup: function () {
-            var beatles = [
-                {id: 1, name: 'John', surname: 'Lennon', instrument: 'Guitar'},
-                {id: 2, name: 'Paul', surname: 'McCartney', instrument: 'Bass'},
-                {id: 3, name: 'George', surname: 'Harrison', instrument: 'Guitar'},
-                {id: 4, name: 'Ringo', surname: 'Starr', instrument: 'Drums'}
-            ];
+
 
             var gridModel = new Store({
                 data: beatles
@@ -59,10 +60,8 @@ define([
             //grid.startup();
         },
 
-        'default test': function () {
-            debugger;
-            console.log(grid);
-            assert.strictEqual(grid.model.length,1, 'Example')
+        'Grid elements number': function () {
+            assert.strictEqual(grid.store.data.length,beatles.length, 'The grid should have the same element as the array')
         }
     })
 

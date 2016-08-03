@@ -4,13 +4,9 @@
 require([
         'dojo/store/Memory',
         'gridx/Grid',
-        'gridx/core/model/cache/Sync',
-        'gridx/modules/SingleSort', //Require module source code
-        'gridx/modules/ColumnResizer',   //Require module source code
-        'gridx/modules/Pagination',
-        'gridx/modules/pagination/PaginationBar'
+        'gridx/core/model/cache/Sync'
     ],
-    function (Store, Grid, Cache, SingleSort, ColumnResizer, Pagination,PaginationBar) {
+    function (Store, Grid, Cache) {
 
         var beatles = [
             {id: 1, name: 'John', surname: 'Lennon', instrument: 'Guitar'},
@@ -37,12 +33,7 @@ require([
             // You can add modules here
             // Every module contains a reference to the model and to the grid instance
             // You can access to the each module using gridVariable.moduleName
-            modules: [
-                SingleSort,
-                ColumnResizer,
-                Pagination,
-                PaginationBar
-            ],
+            modules: [ ],
             // You can pass parameters to a single module using the convention moduleNameParameterName
             columnResizerMinWidth: 10,
             paginationInitialPageSize: 15,
@@ -55,17 +46,9 @@ require([
 
         console.log('Row', grid.row(1));
         console.log('Row id', grid.row(1).id);
-
         console.log('Cell content', grid.cell(0,0).data());
-
         console.log('Column', grid.column(1));
         console.log('Column Name', grid.column(1).name());
-
-        // columns.pop();
-        // grid.setColumns(columns);
-
-
-       // grid.model.sort([{colId: "2", descending: 1}]);
 
         // You can customize a module creating a new one with the same moduleName. Pay attention to respect the same API set
         // A module can depend on other modules
@@ -74,15 +57,4 @@ require([
             // refresh UI
             grid.body.refresh();
         });
-
-        // setTimeout(function () {
-        //     beatles.push(
-        //         {id: 5, name: 'Billy', surname: 'Preston', instrument: 'Piano'}
-        //     );
-        //     grid.model.clearCache();
-        //     console.log(beatles);
-        //     grid.model.store.setData(beatles);
-        //     grid.body.refresh();
-        //     grid.sort.sort(1);
-        // }, 5000);
     });

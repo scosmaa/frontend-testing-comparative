@@ -25,50 +25,44 @@ define({
     // OnDemand. Options that will be permutated are browserName, version, platform, and platformVersion; any other
     // capabilities options specified for an environment will be copied as-is
     environments: [
-        { browserName: 'chrome' }
-        //     { browserName: 'chrome' },
-        //     { browserName: 'internet explorer',
-        //         'ie.ensureCleanSession': true
-        //     },
-        //     { browserName: 'MicrosoftEdge' },
-        //     /*
-        //      // Uncomment these for more testing!
-        //      { browserName: 'internet explorer', version: '10', platform: 'Windows 8' },
-        //      { browserName: 'internet explorer', version: '9', platform: 'Windows 7' },
-        //      { browserName: 'firefox', version: '21', platform: 'Mac 10.6' },
-        //      { browserName: 'chrome', platform: [ 'Linux', 'Mac 10.8', 'Windows 7' ] },
-        //      { browserName: 'safari', version: '6', platform: 'Mac 10.8' }
-        //      */
+        { browserName: 'firefox' },
+        { browserName: 'chrome' },
+        { browserName: 'internet explorer',
+                'ie.ensureCleanSession': true
+        },
+        { browserName: 'MicrosoftEdge' }
     ],
 
     //tunnel: 'SauceLabsTunnel',
 
     // Maximum number of simultaneous integration tests that should be executed on the remote WebDriver service
     maxConcurrency: 4,
-
+    useSauceConnect: false,
     // Configuration options for the module loader; any AMD configuration options supported by the Dojo loader can be
     // used here
-    loaders: {
 
-        'host-node': 'requirejs',
-        'host-browser': 'bower_components/dojo/dojo.js'
-    },
     loader: {
         // Packages that should be registered with the loader in each testing environment
         packages: [
             { name: 'dojo', location: 'bower_components/dojo' },
             { name: 'dojox', location: 'bower_components/dojox' },
             { name: 'dijit', location: 'bower_components/dijit' },
-            { name: 'gridx', location: 'bower_components/gridx' }
+            { name: 'gridx', location: 'bower_components/gridx' },
+            // The next package is VERY important, because set the right test suites path when you use the runner
+            { name: 'intern_tests', location: 'intern_tests' },
+            { name: 'app', location: 'src/app' }
         ]
     },
 
     // Non-functional test suite(s) to run in each browser
-    suites: [ 'frontend-testing-comparative/intern_tests/unit/grid' ],
-
+    suites: [ 'intern_tests/all' ],
     // Functional test suite(s) to run in each browser once non-functional tests are completed
     //functionalSuites: [ 'tests/functional/Todo' ],
 
+    loaders: {
+        'host-browser': 'bower_components/dojo/dojo.js'
+    },
+
     // A regular expression matching URLs to files that should not be included in code coverage analysis
-    excludeInstrumentation: /^(?:tests|node_modules)\//
+    excludeInstrumentation: /^(?:tests|node_modules|bower_components)\//
 });
