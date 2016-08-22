@@ -4,9 +4,11 @@
 require([
         'dojo/store/Memory',
         'gridx/Grid',
-        'gridx/core/model/cache/Sync'
+        'gridx/core/model/cache/Sync',
+        'gridx/modules/SingleSort',
+        'dojo/domReady!'
     ],
-    function (Store, Grid, Cache) {
+    function (Store, Grid, Cache, SingleSort) {
 
         var beatles = [
             {id: 1, name: 'John', surname: 'Lennon', instrument: 'Guitar'},
@@ -33,7 +35,9 @@ require([
             // You can add modules here
             // Every module contains a reference to the model and to the grid instance
             // You can access to the each module using gridVariable.moduleName
-            modules: [ ],
+            modules: [
+                SingleSort
+            ],
             // You can pass parameters to a single module using the convention moduleNameParameterName
             columnResizerMinWidth: 10,
             paginationInitialPageSize: 15,

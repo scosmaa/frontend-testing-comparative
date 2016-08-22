@@ -25,12 +25,13 @@ define({
     // OnDemand. Options that will be permutated are browserName, version, platform, and platformVersion; any other
     // capabilities options specified for an environment will be copied as-is
     environments: [
-        { browserName: 'firefox' },
-        { browserName: 'chrome' },
-        { browserName: 'internet explorer',
-                'ie.ensureCleanSession': true
-        },
-        { browserName: 'MicrosoftEdge' }
+        { browserName: 'firefox' }
+        //  { browserName: 'chrome' },
+        // // // ATTENTION: to use IE you have to to enable intranet protected mode (SETTING -> Internet Options -> Security)
+        //  { browserName: 'internet explorer',
+        //          'ie.ensureCleanSession': true
+        //  },
+        //  { browserName: 'MicrosoftEdge' }
     ],
 
     //tunnel: 'SauceLabsTunnel',
@@ -57,12 +58,21 @@ define({
     // Non-functional test suite(s) to run in each browser
     suites: [ 'intern_tests/all' ],
     // Functional test suite(s) to run in each browser once non-functional tests are completed
-    //functionalSuites: [ 'tests/functional/Todo' ],
-
+    functionalSuites: [ 'intern_tests/functional/Grid' ],
+    // Leave browser opened when test is complete
+    // https://github.com/theintern/intern/issues/397
+    //https://github.com/theintern/intern/issues/144
+    leaveRemoteOpen: false,
     loaders: {
         'host-browser': 'bower_components/dojo/dojo.js'
     },
-
+    // Use a reporter to generate several kind of documents
+    // It's not possible to use the HTML reporters to create a functionals test summary
+    // You have to create a new one (try starting from JUnit reporters)
+    // http://stackoverflow.com/questions/37701036/how-to-generate-html-reports-for-functional-tests-using-intern-tool/37701566#37701566
+    // reporters: [
+    //     { id: 'JUnit', filename: 'aaa.xml' }
+    // ],
     // A regular expression matching URLs to files that should not be included in code coverage analysis
     excludeInstrumentation: /^(?:tests|node_modules|bower_components)\//
 });
