@@ -69,6 +69,7 @@ define({
     // Use a reporter to generate several kind of documents
     // It's not possible to use the HTML reporters to create a functionals test summary
     // You have to create a new one (try starting from JUnit reporters)
+    // http://stackoverflow.com/search?q=%5Bintern%5D+html+reporter
     // http://stackoverflow.com/questions/37701036/how-to-generate-html-reports-for-functional-tests-using-intern-tool/37701566#37701566
     // reporters: [
     //     { id: 'JUnit', filename: 'aaa.xml' }
