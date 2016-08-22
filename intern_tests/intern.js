@@ -25,13 +25,13 @@ define({
     // OnDemand. Options that will be permutated are browserName, version, platform, and platformVersion; any other
     // capabilities options specified for an environment will be copied as-is
     environments: [
-        { browserName: 'firefox' }
-        //  { browserName: 'chrome' },
+        { browserName: 'firefox' },
+        { browserName: 'chrome' },
         // // // ATTENTION: to use IE you have to to enable intranet protected mode (SETTING -> Internet Options -> Security)
-        //  { browserName: 'internet explorer',
-        //          'ie.ensureCleanSession': true
-        //  },
-        //  { browserName: 'MicrosoftEdge' }
+         { browserName: 'internet explorer',
+                 'ie.ensureCleanSession': true
+         },
+         { browserName: 'MicrosoftEdge' }
     ],
 
     //tunnel: 'SauceLabsTunnel',
@@ -71,9 +71,9 @@ define({
     // You have to create a new one (try starting from JUnit reporters)
     // http://stackoverflow.com/search?q=%5Bintern%5D+html+reporter
     // http://stackoverflow.com/questions/37701036/how-to-generate-html-reports-for-functional-tests-using-intern-tool/37701566#37701566
-    // reporters: [
-    //     { id: 'JUnit', filename: 'aaa.xml' }
-    // ],
+    reporters: [
+        { id: 'JUnit', filename: 'intern_tests\\test_results.xml' }
+    ],
     // A regular expression matching URLs to files that should not be included in code coverage analysis
     excludeInstrumentation: /^(?:tests|node_modules|bower_components)\//
 });
