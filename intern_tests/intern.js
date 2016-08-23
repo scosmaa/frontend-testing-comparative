@@ -26,6 +26,8 @@ define({
     // capabilities options specified for an environment will be copied as-is
     environments: [
         { browserName: 'firefox' },
+        // With chrome it is possible to emulate a mobile device
+        // http://stackoverflow.com/questions/38767438/is-it-possible-to-run-chrome-in-mobile-emulation-mode-with-selenium-server-with
         { browserName: 'chrome' },
         // // // ATTENTION: to use IE you have to to enable intranet protected mode (SETTING -> Internet Options -> Security)
          { browserName: 'internet explorer',
