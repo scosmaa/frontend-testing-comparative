@@ -1,5 +1,5 @@
 # frontend-testing-comparative
-A comparative between the most important frontend testing framework
+A comparative between the most important frontend testing frameworks
 
 The main purpose of this comparative is to find what testing tool best fits my needs.
 I want to perform the following validations during the development process:
