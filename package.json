@@ -2,6 +2,8 @@
   "name": "application-name",
   "version": "0.0.1",
   "devDependencies": {
-    "intern": "^3.2.3"
+    "intern": "^3.2.3",
+    "webdrivercss": "2.0.0beta-rc1",
+    "webdriverio": "3.4"
   }
 }
