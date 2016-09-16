@@ -65,6 +65,7 @@ define({
     // https://github.com/theintern/intern/issues/397
     //https://github.com/theintern/intern/issues/144
     leaveRemoteOpen: false,
+    // We use an older version of dojo, so we can set the right package loader
     loaders: {
         'host-browser': 'bower_components/dojo/dojo.js'
     },
@@ -73,9 +74,9 @@ define({
     // You have to create a new one (try starting from JUnit reporters)
     // http://stackoverflow.com/search?q=%5Bintern%5D+html+reporter
     // http://stackoverflow.com/questions/37701036/how-to-generate-html-reports-for-functional-tests-using-intern-tool/37701566#37701566
-    reporters: [
-        { id: 'JUnit', filename: 'intern_tests\\test_results.xml' }
-    ],
+    // reporters: [
+    //     { id: 'JUnit', filename: 'intern_tests\\test_results.xml' }
+    // ],
     // A regular expression matching URLs to files that should not be included in code coverage analysis
     excludeInstrumentation: /^(?:tests|node_modules|bower_components)\//
 });

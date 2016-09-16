@@ -3,7 +3,9 @@
  */
 define([
     './unit/hello',
-    'intern/node_modules/dojo/has!host-browser?./unit/grid'
+    // Some tests can run only in browser context so you should prepend the following string
+    // 'intern/node_modules/dojo/has!host-browser?
+    'intern/node_modules/dojo/has!host-browser?./integration/grid'
 ], function () {
 
 });
